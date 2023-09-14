@@ -1,0 +1,30 @@
+.category-list {
+    width: 100%;
+    font-family: system-ui;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    text-align: center;
+
+    &__item {
+        flex-wrap: nowrap;
+        align-items: center;
+        font-size: 14px;
+        cursor: pointer;
+        border-radius: 5px;
+
+        &-icon img {
+            width: 40px;
+            height: 40px;
+            margin-bottom: 5px;
+        }
+        &-name {
+            font-weight: bold;
+        }
+    }
+    &__item:hover{
+        transform: translateY(-5px);
+        box-shadow: 1px 1px 10px 1px black;
+    }
+
+}
