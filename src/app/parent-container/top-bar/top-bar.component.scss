@@ -1,0 +1,96 @@
+.top-bar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #2874f0;
+
+    &__search{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 0;
+        width: 40%;
+
+        &__image{
+            height: 30%;
+            width: 15%;
+            margin-right: 3px;
+        }
+
+        &__bar{
+            width: 100%;
+            padding: 10px;
+            border: none;
+        }
+
+        &__bar:focus, :active{
+            border: none;
+        }
+
+        &__button{
+            border: none;
+            padding: 4px;
+            background-color: white;
+            color: #2874f0;
+            cursor: pointer;
+        }
+    }
+
+    &__buttons{
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        align-items: center;
+        justify-content: space-between;
+        width: 40%;
+
+        &__login-button{
+            width: 20%;
+            padding: 5px;
+            background-color: white;
+            border: none;
+            color: #2874f0;
+            font-size: medium;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        &__seller-button{
+            width: 25%;
+            background-color: #2874f0;
+            color: white;
+            cursor: pointer;
+            font-size: medium;
+            font-weight: bold;
+            border: none;
+        }
+
+        &__more-button{
+            width: 15%;
+            background-color: #2874f0;
+            color: white;
+            cursor: pointer;
+            font-size: medium;
+            font-weight: bold;
+            border: none;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        &__cart-button{
+            width: 20%;
+            background-color: #2874f0;
+            color: white;
+            cursor: pointer;
+            font-size: medium;
+            font-weight: bold;
+            border: none;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            column-gap: 2px;
+        }
+    }
+}
