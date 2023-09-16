@@ -6,6 +6,7 @@ import { ParentContainerComponent } from './parent-container.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { SignUpPageComponent } from './sign-up-page/sign-up-page.component';
+import { AddToCartComponent } from './add-to-cart/add-to-cart.component';
 
 
 const routes: Routes = [
@@ -20,6 +21,10 @@ const routes: Routes = [
   {
     path: 'signup-page',
     component: SignUpPageComponent
+  },
+  {
+    path: 'cart',
+    component: AddToCartComponent
   } 
 ]
 

@@ -9,6 +9,7 @@ import { ParentContainerRoutingModule } from './parent-container-routing.module'
 import { SignUpPageComponent } from './sign-up-page/sign-up-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AddToCartComponent } from './add-to-cart/add-to-cart.component';
 
 
 
@@ -20,6 +21,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CategoryListComponent,
     LoginPageComponent,
     SignUpPageComponent, 
+    AddToCartComponent
   ],
   imports: [
     CommonModule,

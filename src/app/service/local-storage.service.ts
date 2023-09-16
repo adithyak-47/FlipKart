@@ -15,6 +15,10 @@ export class LocalStorageService {
 
   public categories: Array<ICategoryList> = Categories;
   public products: Array<IProduct> = Products;  
+  public static CART_KEY: string = "cart";
+
+  public cartProducts!: Array<IProduct>;
+  
 
   constructor() { }
 
@@ -41,4 +45,19 @@ export class LocalStorageService {
   public getUserDetails(): string {
     return localStorage.getItem(LocalStorageService.USER_KEY) || '';
   }
+  public getCartProducts(): Array<IProduct>{
+    const cartItems = localStorage.getItem(LocalStorageService.CART_KEY) || "";
+    if(cartItems) this.cartProducts = JSON.parse(cartItems);
+    else this.cartProducts = [];
+    console.log(cartItems)
+    return this.cartProducts;
+  }
+
+  public addProductToCart(product: IProduct): void{
+    this.getCartProducts();
+    console.log(this.cartProducts);
+    this.cartProducts.push(product);
+    localStorage.setItem(LocalStorageService.CART_KEY, JSON.stringify(this.cartProducts));
+  }
+
 }

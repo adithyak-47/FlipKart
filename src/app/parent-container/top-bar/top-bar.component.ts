@@ -18,4 +18,8 @@ export class TopBarComponent implements OnInit {
   public onLogin(){
     this.router.navigate(['login-page'])
   }
+
+  public onCart(): void{
+    this.router.navigate(['cart']);
+  }
 }
