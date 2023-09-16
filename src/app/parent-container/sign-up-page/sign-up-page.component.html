@@ -11,7 +11,7 @@
                         alt="FlipKart">
                 </div>
                 <div class="signup-page__right">
-                    <div class="error" *ngIf="!signUpForm.valid && signUpForm.touched">All fields are required</div>
+                    <div class="error" *ngIf="(!signUpForm.valid && signUpForm.touched) || error">All fields are required</div>
                     <div *ngIf="passwordsDontMatchError" class="error">Passwords do not match</div>
                     <form [formGroup]="signUpForm" (ngSubmit)="onSignUp()" class="signup-container__form">
                         
