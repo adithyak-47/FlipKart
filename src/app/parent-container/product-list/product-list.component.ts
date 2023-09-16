@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { IProduct } from './product.interface';
 
 @Component({
   selector: 'app-product-list',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./product-list.component.scss']
 })
 export class ProductListComponent {
+
+
+  @Input() public productsListFromParent!: Array<IProduct>;
+
+  constructor(){}
+
 
 }

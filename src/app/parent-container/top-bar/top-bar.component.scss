@@ -4,6 +4,9 @@
     align-items: center;
     justify-content: space-evenly;
     background-color: #2874f0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 
     &__search{
         display: flex;
