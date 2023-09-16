@@ -45,6 +45,11 @@ export class LocalStorageService {
   public getUserDetails(): string {
     return localStorage.getItem(LocalStorageService.USER_KEY) || '';
   }
+
+  public logUserOut(): void{
+    localStorage.setItem(LocalStorageService.USER_KEY, "");
+  }
+
   public getCartProducts(): Array<IProduct>{
     const cartItems = localStorage.getItem(LocalStorageService.CART_KEY) || "";
     if(cartItems) this.cartProducts = JSON.parse(cartItems);
