@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { IProduct } from './product.interface';
+import { LocalStorageService } from 'src/app/service/local-storage.service';
 
 @Component({
   selector: 'app-product-list',
@@ -13,13 +14,18 @@ export class ProductListComponent {
 
   @Output() public cartProduct: EventEmitter<IProduct> = new EventEmitter();
 
-  constructor(){}
+  constructor(private readonly localStorageService: LocalStorageService){}
 
 
   public addProductToCart(product: IProduct): void{
-    this.cartProduct.emit(product);
-    alert("Product has been added to cart.");
+
+    const user = this.localStorageService.getUserDetails();
+    if(user === ''){
+      alert('You need to login or sign up to add item');
+    }
+    else{
+      this.cartProduct.emit(product);
+      alert("Product has been added to cart.");
+    }
   }
-
-
 }
