@@ -3,13 +3,24 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { ParentContainerModule } from './parent-container.module';
 import { ParentContainerComponent } from './parent-container.component';
+import { LoginPageComponent } from './login-page/login-page.component';
+import { ProductListComponent } from './product-list/product-list.component';
+import { SignUpPageComponent } from './sign-up-page/sign-up-page.component';
 
 
 const routes: Routes = [
   {
     path:'',
     component: ParentContainerComponent
-  }
+  },
+  {
+    path: 'login-page',
+    component: LoginPageComponent
+  },
+  {
+    path: 'signup-page',
+    component: SignUpPageComponent
+  } 
 ]
 
 
