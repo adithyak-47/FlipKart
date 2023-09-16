@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   templateUrl: './top-bar.component.html',
   styleUrls: ['./top-bar.component.scss']
 })
-export class TopBarComponent {
+export class TopBarComponent implements OnInit {
 
   @Input() public categoriesFromParent!: Array<ICategoryList>;
 
