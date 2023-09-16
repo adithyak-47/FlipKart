@@ -33,7 +33,7 @@ export class SignUpPageComponent implements OnInit {
 
     this.signUpForm = this.fb.group({
       name: ['', Validators.required],
-      email: ['', Validators.required, this.emailValidator()],
+      email: ['', Validators.compose([Validators.required, this.emailValidator()])],
       password: ['', Validators.required],
       confirmpassword: ['', Validators.required]
     })
@@ -57,7 +57,6 @@ export class SignUpPageComponent implements OnInit {
         this.error = true
       }
     }
-
     else {
       this.passwordsDontMatchError = true
     }
@@ -68,7 +67,7 @@ export class SignUpPageComponent implements OnInit {
         if (!control.value) {
           return null;
         }
-        return control.value.includes('@carestack.com') ? null : { invalidEmail: true };
+        return control.value.includes('@carestack.com'|| '@gmail.com') ? null : { invalidEmail: true };
       }
     }
   }
