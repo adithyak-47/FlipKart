@@ -11,7 +11,6 @@ export class TopBarComponent implements OnInit {
 
   @Input() public categoriesFromParent!: Array<ICategoryList>;
 
-
   constructor(private readonly router: Router){}
   public ngOnInit(): void {
     
@@ -19,6 +18,4 @@ export class TopBarComponent implements OnInit {
   public onLogin(){
     this.router.navigate(['login-page'])
   }
-
-  //if login successful change title from 'Login' to 'My Account'
 }

@@ -12,18 +12,25 @@
                 </div>
             </div>
             <div class="login-page__right">
-                <label for="email"><b>Email</b></label>
-                <input type="text" placeholder="Enter Email" name="email" required>
+                <form [formGroup]="loginForm" class="login-form" (ngSubmit)="onLogin()">
 
-                <label for="psw"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="psw" required>
+                    <label for="email"><b>Email</b></label>
+                    <input type="text" placeholder="Enter Email" name="email" formControlName="email">
+                    <div class="validation-error" *ngIf="loginForm.controls['email'].hasError('required') && loginForm.controls['email'].touched">Email is required</div>
+                    <div class="validation-error" *ngIf="loginForm.controls['email'].hasError('invalidEmail')">Email is not valid</div>
 
-                <div class="login-page__right-terms">
-                    <p>By continuing, you agree to Flipkart's<a> Terms of Use</a> and <a>Privacy Policy.</a></p>
-                </div>
+                    <label for="psw"><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password" name="psw" formControlName="password">
+                    <div class="validation-error" *ngIf="loginForm.controls['password'].hasError('required') && loginForm.controls['password'].touched">Password is required</div>
 
-                <button class="login-page__right-loginbutton" type="submit" (click)="onLogin()">Login</button>
-                <div class="login-page__right-signup" (click)="onSignUp()">New to FlipKart? Create an account</div>
+                    <div class="login-page__right-terms">
+                        <p>By continuing, you agree to Flipkart's<a> Terms of Use</a> and <a>Privacy Policy.</a></p>
+                    </div>
+                    <div *ngIf="error" class="error-message">Invalid Credentials</div>
+                    <button class="login-page__right-loginbutton" type="submit">Login</button>
+
+                    <div class="login-page__right-signup" (click)="onSignUp()">New to FlipKart? Create an account</div>
+                </form>
             </div>
         </div>
     </div>

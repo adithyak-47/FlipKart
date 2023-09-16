@@ -11,23 +11,33 @@
                         alt="FlipKart">
                 </div>
                 <div class="signup-page__right">
-                   <label class="sign-up-container__form-label">Enter Name:</label>
-                    <input type="text" name="username" formControlName="name"><br>
+                    <div class="error" *ngIf="!signUpForm.valid && signUpForm.touched">All fields are required</div>
+                    <div *ngIf="passwordsDontMatchError" class="error">Passwords do not match</div>
+                    <form [formGroup]="signUpForm" (ngSubmit)="onSignUp()" class="signup-container__form">
+                        
+                        <label class="sign-up-container__form-label">Enter Name:</label>
+                        <input type="text" name="username" formControlName="name"><br>
+                        <div class="validation-error" *ngIf="signUpForm.controls['name'].hasError('required') && signUpForm.controls['name'].touched" >Name is required</div>
 
-                    <label class="sign-up-container__form-label">Enter EmailId:</label>
-                    <input type="email" name="email" formControlName="email"><br>
-              
-                    <label class="sign-up-container__form-label">Enter Password:</label>
-                    <input type="text" name="password" formControlName="password"><br>
+                        <label class="sign-up-container__form-label">Enter EmailId:</label>
+                        <input type="email" name="email" formControlName="email"><br>
+                        <div class="validation-error" *ngIf="signUpForm.controls['email'].hasError('required') && signUpForm.controls['email'].touched">Email is required</div>
+                        <div class="validation-error" *ngIf="signUpForm.controls['email'].hasError('invalidEmail')">Email is not valid</div>
 
-                    <label class="sign-up-container__form-label">Confirm Password: </label>
-                    <input type="password" name="confirmpassword" formControlName="confirmpassword"><br>
+                        <label class="sign-up-container__form-label">Enter Password:</label>
+                        <input type="text" name="password" formControlName="password"><br>
+                        <div class="validation-error" *ngIf="signUpForm.controls['password'].hasError('required') && signUpForm.controls['password'].touched">Password is required</div>
 
-                    <div class="signup-page__right-terms">
-                        <p>By continuing, you agree to Flipkart's<a> Terms of Use</a> and <a>Privacy Policy.</a></p>
-                    </div>
+                        <label class="sign-up-container__form-label">Confirm Password: </label>
+                        <input type="password" name="confirmpassword" formControlName="confirmpassword"><br>
+                        <div class="validation-error" *ngIf="signUpForm.controls['confirmpassword'].hasError('required') && signUpForm.controls['confirmpassword'].touched">Password is required</div>
 
-                    <button class="signup-page__right-signupbutton" type="submit" (click)="onSignUp()">SignUp</button>
+                        <div class="signup-page__right-terms">
+                            <p>By continuing, you agree to Flipkart's<a> Terms of Use</a> and <a>Privacy Policy.</a></p>
+                        </div>
+
+                        <button class="signup-page__right-signupbutton" type="submit">SignUp</button>
+                    </form>
                 </div>
             </div>
         </div>

@@ -8,6 +8,7 @@ import { LocalStorageService } from '../service/local-storage.service';
 import { ParentContainerRoutingModule } from './parent-container-routing.module';
 import { SignUpPageComponent } from './sign-up-page/sign-up-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -18,12 +19,13 @@ import { LoginPageComponent } from './login-page/login-page.component';
     ProductListComponent,
     CategoryListComponent,
     LoginPageComponent,
-    SignUpPageComponent
+    SignUpPageComponent, 
   ],
   imports: [
     CommonModule,
     ParentContainerRoutingModule,
-  
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports:[
     ParentContainerComponent
