@@ -1,0 +1,31 @@
+<div class="login-container">
+    <div class="login-container__content">
+        <div class="login-page">
+            <div class="login-page__left">
+                <div class="login-page__left-text">
+                    <h2>Login</h2>
+                    <p>Get access to your <br> Orders, Wishlist and <br> Recommendations</p>
+                </div>
+                <div class="login-page__left-image">
+                    <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTPNq4Tw1Ptj26yaWYFSIi8pNtNV9JzJNGi3uZvsxfTZNhqmx7l"
+                        alt="FlipKart">
+                </div>
+            </div>
+            <div class="login-page__right">
+                <label for="email"><b>Email</b></label>
+                <input type="text" placeholder="Enter Email" name="email" required>
+
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" required>
+
+                <div class="login-page__right-terms">
+                    <p>By continuing, you agree to Flipkart's<a> Terms of Use</a> and <a>Privacy Policy.</a></p>
+                </div>
+
+                <button class="login-page__right-loginbutton" type="submit" (click)="onLogin()">Login</button>
+                <div class="login-page__right-signup" (click)="onSignUp()">New to FlipKart? Create an account</div>
+            </div>
+        </div>
+    </div>
+    <div class="login-container__background"></div>
+</div>

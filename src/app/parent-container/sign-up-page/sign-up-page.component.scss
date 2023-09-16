@@ -1,0 +1,107 @@
+.signup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+
+    &__content {
+        background-color: white;
+        padding: 20px;
+        border-radius: 5px;
+    }
+}
+
+.signup-page {
+    display: flex;
+    font-family: system-ui;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+
+    &__left {
+        flex-direction: column;
+        align-items: right;
+        padding: 14px;
+        background-color: #007bff;
+
+        &-text {
+            text-align: left;
+            margin-bottom: 20px;
+            color: white;
+
+            h2 {
+                font-size: 24px;
+                margin-bottom: 10px;
+            }
+
+            p {
+                font-size: 16px;
+                line-height: 1.4;
+            }
+        }
+
+        &-image {
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+        }
+    }
+
+    &__right {
+        padding: 20px;
+        background-color: #fff;
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 90%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        &-terms {
+            p {
+                a {
+                    color: #007bff;
+
+                    &:hover {
+                        text-decoration: underline;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+
+        &-signupbutton {
+            background-color: #f55c47;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            transition: background-color 0.3s ease-in-out;
+
+            &:hover {
+                background-color: #d94431;
+            }
+        }
+    }
+}
+            

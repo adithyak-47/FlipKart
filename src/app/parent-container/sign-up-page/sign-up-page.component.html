@@ -1,0 +1,35 @@
+<div class="signup-container">
+    <div class="signup-container__content">
+        <div class="signup-page">
+            <div class="signup-page__left">
+                <div class="signup-page__left-text">
+                    <h2>Looks like you're new here!</h2>
+                    <p>Sign up to get started</p>
+                </div>
+                <div class="signup-page__left-image">
+                    <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTPNq4Tw1Ptj26yaWYFSIi8pNtNV9JzJNGi3uZvsxfTZNhqmx7l"
+                        alt="FlipKart">
+                </div>
+                <div class="signup-page__right">
+                   <label class="sign-up-container__form-label">Enter Name:</label>
+                    <input type="text" name="username" formControlName="name"><br>
+
+                    <label class="sign-up-container__form-label">Enter EmailId:</label>
+                    <input type="email" name="email" formControlName="email"><br>
+              
+                    <label class="sign-up-container__form-label">Enter Password:</label>
+                    <input type="text" name="password" formControlName="password"><br>
+
+                    <label class="sign-up-container__form-label">Confirm Password: </label>
+                    <input type="password" name="confirmpassword" formControlName="confirmpassword"><br>
+
+                    <div class="signup-page__right-terms">
+                        <p>By continuing, you agree to Flipkart's<a> Terms of Use</a> and <a>Privacy Policy.</a></p>
+                    </div>
+
+                    <button class="signup-page__right-signupbutton" type="submit" (click)="onSignUp()">SignUp</button>
+                </div>
+            </div>
+        </div>
+        <div class="signup-container__background"></div>
+    </div>
