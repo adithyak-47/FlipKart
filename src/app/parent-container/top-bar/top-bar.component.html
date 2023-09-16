@@ -9,7 +9,7 @@
         <button class="top-bar__buttons__login-button" (click)="onLogin()">Login</button>
         <button class="top-bar__buttons__seller-button">Become a seller</button>
         <button class="top-bar__buttons__more-button"><p>More</p><span class="material-symbols-outlined">arrow_drop_down</span></button>
-        <button class="top-bar__buttons__cart-button"><span class="material-symbols-outlined">shopping_cart</span><p>Cart</p></button>
+        <button class="top-bar__buttons__cart-button" (click)="onCart()"><span class="material-symbols-outlined">shopping_cart</span><p>Cart</p></button>
     </div>
 </div>
 <app-category-list [categoriesList]="categoriesFromParent"></app-category-list>

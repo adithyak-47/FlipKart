@@ -21,4 +21,8 @@ export class TopBarComponent implements OnInit {
   }
 
   //if login successful change title from 'Login' to 'My Account'
+
+  public onCart(): void{
+    this.router.navigate(['cart']);
+  }
 }

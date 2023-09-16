@@ -8,6 +8,7 @@ import { LocalStorageService } from '../service/local-storage.service';
 import { ParentContainerRoutingModule } from './parent-container-routing.module';
 import { SignUpPageComponent } from './sign-up-page/sign-up-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
+import { AddToCartComponent } from './add-to-cart/add-to-cart.component';
 
 
 
@@ -18,7 +19,8 @@ import { LoginPageComponent } from './login-page/login-page.component';
     ProductListComponent,
     CategoryListComponent,
     LoginPageComponent,
-    SignUpPageComponent
+    SignUpPageComponent,
+    AddToCartComponent
   ],
   imports: [
     CommonModule,

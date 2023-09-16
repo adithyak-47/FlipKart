@@ -1,0 +1,24 @@
+<div class="cart-container">
+    <h1 class="cart-container__heading">Your cart</h1>
+    <div class="cart-container__cart" *ngIf="cartProducts.length > 0">
+        <div class="cart-container__cart__item" *ngFor="let cartItem of cartProducts">
+            <img class="cart-container__cart__item__image" src={{cartItem.url}} />
+            <div class="cart-container__cart__item__content">
+                <p class="cart-container__cart__item__content__name">{{cartItem.name}}</p>
+                <p class="cart-container__cart__item__content__price">&#8377; {{cartItem.price}}</p>
+                <small class="cart-container__cart__item__content__quantity">Qty:
+                    <select>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                    </select>
+                </small>
+            </div>
+        </div>
+    </div>
+    <div class="cart-container__checkout">
+        <p class="cart-container__checkout__total-price">Total price: {{totalPrice}}</p>
+        <button class="cart-container__checkout__button">Checkout</button>
+        <button class="cart-container__checkout__button" (click)="goHome()">Home</button>
+    </div>
+</div>

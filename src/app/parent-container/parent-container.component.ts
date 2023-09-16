@@ -14,6 +14,7 @@ export class ParentContainerComponent implements OnInit {
 
   public categoriesList!: Array<ICategoryList>;
   public productsList!: Array<IProduct>;
+  public cartProducts!: Array<IProduct>;
   
 
   constructor(private readonly localStorageService: LocalStorageService){}
@@ -25,9 +26,17 @@ export class ParentContainerComponent implements OnInit {
 
     const categories = this.localStorageService.getCategories();
     const products = this.localStorageService.getAvailableProducts();
-
-
+    
+    
     this.categoriesList = JSON.parse(categories);
     this.productsList = JSON.parse(products);
+    this.cartProducts = this.localStorageService.getCartProducts();
   }
+
+  public addProductToCart(product: IProduct): void{
+    this.localStorageService.addProductToCart(product);
+  }
+
+
+
 }
