@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ICategoryList } from './category-list/ICategoryList';
 import { Router } from '@angular/router';
 
 @Component({
@@ -6,12 +7,15 @@ import { Router } from '@angular/router';
   templateUrl: './top-bar.component.html',
   styleUrls: ['./top-bar.component.scss']
 })
-export class TopBarComponent {
+export class TopBarComponent implements OnInit{
 
-  constructor(private readonly router: Router){
+  @Input() public categoriesFromParent!: Array<ICategoryList>;
 
+
+  constructor(private readonly router: Router){}
+  public ngOnInit(): void {
+    
   }
-
   public onLogin(){
     this.router.navigate(['login-page'])
   }

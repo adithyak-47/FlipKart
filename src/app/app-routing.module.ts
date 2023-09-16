@@ -8,20 +8,8 @@ import { SignUpPageComponent } from './parent-container/sign-up-page/sign-up-pag
 const routes: Routes = [
   {
     path: '',
-    component: ParentContainerComponent
-  },
-  {
-    path: 'login-page',
-    component: LoginPageComponent
-  },
-  {
-    path: 'product-list',
-    component: ProductListComponent
-  },
-  {
-    path: 'signup-page',
-    component: SignUpPageComponent
-  } 
+    loadChildren: () => import('./parent-container/parent-container.module').then(m => m.ParentContainerModule)
+  }
 ];
 
 @NgModule({

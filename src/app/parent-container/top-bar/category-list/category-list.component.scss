@@ -5,6 +5,9 @@
     align-items: center;
     justify-content: space-evenly;
     text-align: center;
+    padding-bottom: 30px;
+    border-bottom: 1px solid lightgray;
+    box-shadow: 0 5px 20px -13px black;
 
     &__item {
         flex-wrap: nowrap;
