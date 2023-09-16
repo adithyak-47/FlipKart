@@ -21,6 +21,7 @@ export class SignUpPageComponent implements OnInit {
     confirmpassword: FormControl<any>
   }>
 
+
   constructor(private readonly router: Router, private readonly userAuth: LocalStorageService, private fb: FormBuilder) { }
 
   public ngOnInit(): void {
@@ -40,8 +41,9 @@ export class SignUpPageComponent implements OnInit {
   }
 
   public onSignUp() {
-    if (this.signUpForm.controls['password'].value === this.signUpForm.controls['confirmpassword'].value) {
-      if (this.signUpForm.valid && !this.signUpForm.controls['email'].hasError('invalidEmail')) {
+    if(this.signUpForm.valid)
+    {
+      if (this.signUpForm.controls['password'].value === this.signUpForm.controls['confirmpassword'].value && !this.signUpForm.controls['email'].hasError('invalidEmail')) {
 
         this.form = {
           name: this.signUpForm.controls['name'].value,
@@ -52,18 +54,19 @@ export class SignUpPageComponent implements OnInit {
         console.log(this.form)
         this.userAuth.setUserDetails(this.form)
         this.router.navigate(['login-page'])
-      }
-      else {
-        this.error = true
-      }
     }
     else {
       this.passwordsDontMatchError = true
+      }
     }
+    else{
+      this.error = true;
+    }
+    
   }
 
     private emailValidator(): ValidatorFn {
-      return (control: AbstractControl): { [key: string]: boolean } | null => {
+      return (control: AbstractControl): {[key: string]: boolean } | null => {
         if (!control.value) {
           return null;
         }
