@@ -18,6 +18,7 @@ export class ProductListComponent {
 
   public addProductToCart(product: IProduct): void{
     this.cartProduct.emit(product);
+    alert("Product has been added to cart.");
   }
 
 
