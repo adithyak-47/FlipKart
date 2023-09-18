@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { UserAuthService } from './user-auth.service';
+import { HttpToHttpsService } from './http-to-https.service';
 
-describe('UserAuthService', () => {
-  let service: UserAuthService;
+describe('HttpToHttpsService', () => {
+  let service: HttpToHttpsService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(UserAuthService);
+    service = TestBed.inject(HttpToHttpsService);
   });
 
   it('should be created', () => {

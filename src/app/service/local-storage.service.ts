@@ -10,7 +10,7 @@ export class LocalStorageService {
 
   public static CATEGORIES_KEY: string = "categories";
   public static PRODUCTS_KEY: string = "products";
-  public static USER_KEY='userdetails'
+  public static USER_KEY='userdetails';
 
 
   public categories: Array<ICategoryList> = Categories;
@@ -63,6 +63,12 @@ export class LocalStorageService {
     console.log(this.cartProducts);
     this.cartProducts.push(product);
     localStorage.setItem(LocalStorageService.CART_KEY, JSON.stringify(this.cartProducts));
+  }
+
+  public userLoggedIn(): boolean{
+    const user = localStorage.getItem(LocalStorageService.USER_KEY);
+    const loggedIn: boolean = user === null ?  false :  true;
+    return loggedIn;
   }
 
 }
