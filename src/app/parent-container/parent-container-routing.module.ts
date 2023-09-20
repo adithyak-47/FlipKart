@@ -7,6 +7,9 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { SignUpPageComponent } from './sign-up-page/sign-up-page.component';
 import { AddToCartComponent } from './add-to-cart/add-to-cart.component';
+import { authGuard } from '../guard/auth.guard';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpToHttpsService } from '../service/http-to-https.service';
 
 
 const routes: Routes = [
@@ -24,6 +27,7 @@ const routes: Routes = [
   },
   {
     path: 'cart',
+    canActivate: [authGuard],
     component: AddToCartComponent
   } 
 ]
@@ -38,6 +42,13 @@ const routes: Routes = [
   ],
   exports:[
     RouterModule
+  ],
+  providers:[
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpToHttpsService,
+      multi: true
+    }
   ]
 })
 export class ParentContainerRoutingModule { }
