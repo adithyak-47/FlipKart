@@ -5,7 +5,9 @@ import { inject } from '@angular/core';
 export const authGuard: CanActivateFn = (route, state) => {
   const localStorageService = inject(LocalStorageService);
   const router = inject(Router);
-  if(localStorageService.userLoggedIn()){
+  const token = localStorageService.getToken();
+  console.log(token);
+  if(token != ""){
     console.log("user is logged in")
     return true;
   }

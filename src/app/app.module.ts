@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { ParentContainerModule } from './parent-container/parent-container.module';
 import { LoginPageComponent } from './parent-container/login-page/login-page.component';
 import { SignUpPageComponent } from './parent-container/sign-up-page/sign-up-page.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,7 @@ import { SignUpPageComponent } from './parent-container/sign-up-page/sign-up-pag
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ParentContainerModule
+    ParentContainerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

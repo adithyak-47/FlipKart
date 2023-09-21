@@ -48,7 +48,7 @@ const routes: Routes = [
       provide: HTTP_INTERCEPTORS,
       useClass: HttpToHttpsService,
       multi: true
-    }
+    },
   ]
 })
 export class ParentContainerRoutingModule { }

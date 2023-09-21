@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { IUserDetails } from '../IUserDetails';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { LocalStorageService } from 'src/app/service/local-storage.service';
+import { ApiService } from 'src/app/service/api.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-login-page',
@@ -18,7 +20,10 @@ export class LoginPageComponent {
     password: FormControl<any>
   }>
 
-  constructor(private readonly router: Router, private readonly fb: FormBuilder, private readonly userAuth: LocalStorageService) { }
+  public userToken!: string;
+  public validated: boolean = false;
+
+  constructor(private readonly router: Router, private readonly fb: FormBuilder, private readonly userAuth: LocalStorageService, private readonly api: ApiService) { }
 
   ngOnInit(): void {
 
@@ -43,18 +48,28 @@ export class LoginPageComponent {
         email: this.loginForm.controls['email'].value,
         password: this.loginForm.controls['password'].value
       }
-      const isUserValidated = this.validateUser(this.form);
-      isUserValidated ? this.router.navigate(['']) : this.error = true;
+      this.validateUser(this.form);
+      // isUserValidated ? this.router.navigate(['']) : this.error = true;
+      const userToken = this.userAuth.getToken();
+      if(userToken != null) this.router.navigate([''])
+      else this.error = true;
     }
   }
 
-  public validateUser(passedUserData: Partial<IUserDetails>): boolean {
-    const storedUserDetails = JSON.parse(this.userAuth.getUserDetails());
-    return (
-      storedUserDetails.email === passedUserData.email &&
-      storedUserDetails.password === passedUserData.password
-    );
+  public validateUser(passedUserData: Partial<IUserDetails>): void{
+    const storedUserDetails = passedUserData
+    this.api.validateUser(storedUserDetails).subscribe(
+      (response) => {
+        console.log(response);
+        this.userAuth.setToken(response);
+        },
+      (error: HttpErrorResponse) => {
+        console.log(error);
+      }
+    )
   }
+
+
   private emailValidator(): ValidatorFn {
     return (control: AbstractControl): { [key: string]: boolean } | null => {
       if (!control.value) {

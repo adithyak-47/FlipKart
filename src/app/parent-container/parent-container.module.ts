@@ -10,6 +10,9 @@ import { SignUpPageComponent } from './sign-up-page/sign-up-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddToCartComponent } from './add-to-cart/add-to-cart.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ApiService } from '../service/api.service';
+import { authGuard } from '../guard/auth.guard';
 
 
 
@@ -27,13 +30,15 @@ import { AddToCartComponent } from './add-to-cart/add-to-cart.component';
     CommonModule,
     ParentContainerRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   exports:[
     ParentContainerComponent
   ],
   providers:[
-    LocalStorageService
+    LocalStorageService,
+    ApiService,
   ]
 })
 export class ParentContainerModule { }
