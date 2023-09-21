@@ -3,6 +3,8 @@ import { ICategoryList } from './top-bar/category-list/ICategoryList';
 import { LocalStorageService } from '../service/local-storage.service';
 import { IProduct } from './product-list/product.interface';
 import { IUserDetails } from './IUserDetails';
+import { ApiServiceService } from '../api-service.service';
+import { IProducts } from './iproducts';
 
 
 @Component({
@@ -18,11 +20,20 @@ export class ParentContainerComponent implements OnInit {
   public userList: Array<IUserDetails> = []
   public cartProducts!: Array<IProduct>;
   
+  
+  public items: Array<IProducts> = []
 
 
-  constructor(private readonly localStorageService: LocalStorageService) { }
+  constructor(private readonly localStorageService: LocalStorageService, private apiService: ApiServiceService) { }
 
   public ngOnInit(): void {
+    this.apiService.getProduct().subscribe((data: any) => {
+      data.products.forEach((obj: IProducts) => {
+        this.items.push(obj)
+      })
+      //this.products= data.products;
+      console.log(this.items)
+    })
 
     this.localStorageService.setCategories();
     this.localStorageService.setAvailableProducts();
@@ -35,11 +46,11 @@ export class ParentContainerComponent implements OnInit {
 
     const users = this.localStorageService.getUserDetails()
     this.userList = JSON.parse(users)
-    
+
     this.cartProducts = this.localStorageService.getCartProducts();
   }
 
-  public addProductToCart(product: IProduct): void{
+  public addProductToCart(product: IProduct): void {
     this.localStorageService.addProductToCart(product);
   }
 

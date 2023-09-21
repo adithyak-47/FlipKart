@@ -18,4 +18,21 @@ describe('SignUpPageComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should initialise form correctly', () => {
+    component.ngOnInit();
+    expect(component.signUpForm.value).toEqual({
+      name: '',
+      email: '',
+      password: '',
+      confirmpassword: '',
+    });
+  });
+  it('should not show passwordsDontMatchError initially', () => {
+    expect(component.passwordsDontMatchError).toBeFalse();
+  });
+
+  it('should not show error initially', () => {
+    expect(component.error).toBeFalse();
+  });
 });

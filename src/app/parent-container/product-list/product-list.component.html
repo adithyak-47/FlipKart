@@ -1,9 +1,10 @@
 <div class="product-list">
     <div class="product-list__item" *ngFor="let product of productsListFromParent">
-        <img src={{product.url}} alt="img1"/>
+        <img src={{product.url}} alt="img1" />
         <div class="product-list__item__content">
             <p>{{product.name}}</p>
             <p>&#8377; {{product.price}}</p>
             <button class="product-list__item__content__button" (click)="addProductToCart(product)">Buy Now</button>
         </div>
-</div>
+        
+    </div>
