@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ApiServiceService } from './api-service.service';
 
 @Component({
   selector: 'app-root',
@@ -8,13 +7,4 @@ import { ApiServiceService } from './api-service.service';
 })
 export class AppComponent {
   title = 'Flipkart';
-
-
-    // this.apiService.getProduct().subscribe(
-    //   (data) => {
-    //     data.forEach(element => {
-    //     });
-    // })
-  //}
-
 }

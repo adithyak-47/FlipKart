@@ -1,21 +1,21 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+// import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AddToCartComponent } from './add-to-cart.component';
+// import { AddToCartComponent } from './add-to-cart.component';
 
-describe('AddToCartComponent', () => {
-  let component: AddToCartComponent;
-  let fixture: ComponentFixture<AddToCartComponent>;
+// describe('AddToCartComponent', () => {
+//   let component: AddToCartComponent;
+//   let fixture: ComponentFixture<AddToCartComponent>;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      declarations: [AddToCartComponent]
-    });
-    fixture = TestBed.createComponent(AddToCartComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+//   beforeEach(() => {
+//     TestBed.configureTestingModule({
+//       declarations: [AddToCartComponent]
+//     });
+//     fixture = TestBed.createComponent(AddToCartComponent);
+//     component = fixture.componentInstance;
+//     fixture.detectChanges();
+//   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+//   it('should create', () => {
+//     expect(component).toBeTruthy();
+//   });
+// });

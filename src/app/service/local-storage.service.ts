@@ -11,6 +11,7 @@ export class LocalStorageService {
   public static CATEGORIES_KEY: string = "categories";
   public static PRODUCTS_KEY: string = "products";
   public static USER_KEY='userdetails';
+  public static TOKEN = 'token';
 
 
   public categories: Array<ICategoryList> = Categories;
@@ -70,5 +71,14 @@ export class LocalStorageService {
     const loggedIn: boolean = user === null ?  false :  true;
     return loggedIn;
   }
+
+  public setToken(token: string): void{
+    localStorage.setItem(LocalStorageService.TOKEN, token);
+  }
+
+  public getToken(): string{
+    return localStorage.getItem(LocalStorageService.TOKEN) || "";
+  }
+
 
 }

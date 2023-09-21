@@ -29,14 +29,7 @@ export class TopBarComponent implements OnInit {
   }
 
   public onCart(): void{
-
-    const user = this.localStorageService.getUserDetails();
-    if(user == '') this.router.navigate(['login-page']);
-
-    else{
-      
-      this.router.navigate(['cart']);
-    } 
+    this.router.navigate(['cart'])
   }
 
   public onLogout(): void{

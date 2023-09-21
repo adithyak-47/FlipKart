@@ -10,6 +10,9 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidatorFn, Vali
   styleUrls: ['./sign-up-page.component.scss']
 })
 export class SignUpPageComponent implements OnInit {
+  localStorageService(localStorageService: any, arg1: string) {
+    throw new Error('Method not implemented.');
+  }
 
   public form!: IUserDetails
   public error: boolean = false;

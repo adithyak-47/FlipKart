@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { IProduct } from './product.interface';
 import { LocalStorageService } from 'src/app/service/local-storage.service';
-import { ApiServiceService } from 'src/app/api-service.service';
+import { ApiService } from 'src/app/service/api.service';
 
 @Component({
   selector: 'app-product-list',
@@ -14,6 +14,8 @@ export class ProductListComponent {
   @Input() public productsListFromParent!: Array<IProduct>;
 
   @Output() public cartProduct: EventEmitter<IProduct> = new EventEmitter();
+
+  public posts: any = [];
 
   constructor(private readonly localStorageService: LocalStorageService) { }
 
@@ -28,5 +30,7 @@ export class ProductListComponent {
       this.cartProduct.emit(product);
       alert("Product has been added to cart.");
     }
+    
   }
+
 }
